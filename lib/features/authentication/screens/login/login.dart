@@ -1,11 +1,13 @@
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:t_store/common/styles/spacing_styles.dart";
-import 'package:t_store/common/widgets.login_signup/form_divider.dart';
+
 import "package:t_store/features/authentication/screens/login/widgets/login_form.dart";
 import "package:t_store/features/authentication/screens/login/widgets/login_header.dart";
 
-import "../../../../common/widgets.login_signup/social_buttons.dart";
+
+import "../../../../common/widgets/login_signup/form_divider.dart";
+import "../../../../common/widgets/login_signup/social_buttons.dart";
 import "../../../../utils/constants/sizes.dart";
 import "../../../../utils/constants/text_strings.dart";
 
