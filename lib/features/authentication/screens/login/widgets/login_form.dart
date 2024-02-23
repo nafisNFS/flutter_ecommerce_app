@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:t_store/features/authentication/screens/signup/signup.dart';
+import 'package:t_store/navigation_menu.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
@@ -42,15 +43,15 @@ class TLoginForm extends StatelessWidget {
                 ],
               ),
               ///Forget Password
-              TextButton(onPressed: () => Get.to(() => const ForgetPassword()), child: const Text(TTexts.forgetPassword)),
+              TextButton(onPressed: () => Get.to(()=>ForgetPassword()), child: const Text(TTexts.forgetPassword)),
             ],
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
           ///Sign in button
-          SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){}, child: Text(TTexts.signIn))),
+          SizedBox(width: double.infinity,child: ElevatedButton(onPressed: () => Get.to(()=>NavigationMenu()), child: Text(TTexts.signIn))),
           const SizedBox(height: TSizes.spaceBtwItems),
           ///Create account button
-          SizedBox(width: double.infinity,child: OutlinedButton(onPressed: () => Get.to(() => const SignupScreen()), child: Text(TTexts.createAccount))),
+          SizedBox(width: double.infinity,child: OutlinedButton(onPressed: () => Get.to(()=>SignupScreen()), child: Text(TTexts.createAccount))),
         ],
       ),
     )
