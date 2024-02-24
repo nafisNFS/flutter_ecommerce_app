@@ -23,5 +23,6 @@ class App extends StatelessWidget {
       // initialBinding: GeneralBindings(),
       home: const OnBoardingScreen(),
     );
+    //I am nafis .
   }
 }
