@@ -24,6 +24,7 @@ class StoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TAppBar(
+        showBackArrow: false,
         title: Text('Store', style: Theme
             .of(context)
             .textTheme
@@ -51,12 +52,18 @@ class StoreScreen extends StatelessWidget {
                   children:  [
                     ///Search Bar
                     SizedBox(height: TSizes.spaceBtwItems,),
-                    TSearchContainer(text: '',showBorder: true,showBackground: false,padding: EdgeInsets.zero,),
+                    //TSearchContainer(text: '',showBorder: true,showBackground: false,padding: EdgeInsets.zero),
+                    TSearchContainer(
+                      text: 'Search in Store',
+                      showBorder: true,
+                      showBackground: false,
+                      padding: EdgeInsets.zero,
+                    ),
                     SizedBox(height: TSizes.spaceBtwSections,),
 
                     ///Featured Brands
-                    TSectionHeading(title: 'Featured Brands', onPressed: () {}),
-                    const SizedBox(height: TSizes.spaceBtwItems / 1.5,),
+                    TSectionHeading(title: 'Featured Brands                     ', onPressed: () {}),
+                    const SizedBox(height: TSizes.spaceBtwItems / 1.5),
                     
                     TGridLayout(itemCount: 4, mainAxisExtent: 80,itemBuilder: (_,index){
                       return   GestureDetector(
