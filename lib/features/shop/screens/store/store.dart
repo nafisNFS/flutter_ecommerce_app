@@ -38,12 +38,12 @@ class StoreScreen extends StatelessWidget {
         headerSliverBuilder: (_, innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              automaticallyImplyLeading: true,
+              automaticallyImplyLeading: false,
               pinned: true,
               floating: true,
               backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
               expandedHeight: 440,
-              //
+
               flexibleSpace: Padding(
                 padding: EdgeInsets.all(TSizes.defaultSpace),
                 child: ListView(
@@ -51,9 +51,9 @@ class StoreScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children:  [
                     ///Search Bar
-                    SizedBox(height: TSizes.spaceBtwItems,),
+                    const SizedBox(height: TSizes.spaceBtwItems,),
                     //TSearchContainer(text: '',showBorder: true,showBackground: false,padding: EdgeInsets.zero),
-                    TSearchContainer(
+                    const TSearchContainer(
                       text: 'Search in Store',
                       showBorder: true,
                       showBackground: false,
@@ -64,7 +64,7 @@ class StoreScreen extends StatelessWidget {
                     ///Featured Brands
                     TSectionHeading(title: 'Featured Brands                     ', onPressed: () {}),
                     const SizedBox(height: TSizes.spaceBtwItems / 1.5),
-                    
+
                     TGridLayout(itemCount: 4, mainAxisExtent: 80,itemBuilder: (_,index){
                       return   GestureDetector(
                         onTap: (){},
