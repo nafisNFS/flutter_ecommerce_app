@@ -23,14 +23,14 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 ///Logo,title,subtitle
-                 TLoginHeader(),
+                 const TLoginHeader(),
                 ///Form
-                 TLoginForm(),
+                 const TLoginForm(),
                 ///Divider
                  TFormDivider(dividerText: TTexts.orSignInWith.capitalize!,),
                 const SizedBox(height: TSizes.spaceBtwItems),
                 ///Footer
-                TSocialButtons(),
+                const TSocialButtons(),
                 //
               ],
             ),

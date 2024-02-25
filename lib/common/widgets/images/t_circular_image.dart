@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../utils/constants/colors.dart';
-import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
 
@@ -30,18 +29,21 @@ class TCircularImage extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      padding: const EdgeInsets.all(TSizes.sm),
+      padding:  EdgeInsets.all(padding),
       decoration: BoxDecoration(
         color: THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
         borderRadius: BorderRadius.circular(100),
       ),
-      child: Image(
-        fit: fit,
-        image: isNetworkImage
-            ? NetworkImage(image)
-            : AssetImage(image) as ImageProvider,
-        color:overlayColor,
-      ),
+      child:Center(
+        child:Image(
+          fit: fit,
+          image: isNetworkImage
+              ? NetworkImage(image)
+              : AssetImage(image) as ImageProvider,
+          color:overlayColor,
+        ) ,
+      )
+
     );
   }
 }

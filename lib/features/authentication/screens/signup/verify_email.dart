@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:t_store/common/widgets/success_screen/success_screen.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
@@ -30,7 +29,7 @@ class verifyEmailScreen extends StatelessWidget{
             child: Column(
               children: [
                 ///Image
-                Image(image: AssetImage(TImages.deliveredEmailIllustration),width: THelperFunctions.screenWidth() * 0.6,),
+                Image(image: const AssetImage(TImages.deliveredEmailIllustration),width: THelperFunctions.screenWidth() * 0.6,),
                 const SizedBox(height: TSizes.spaceBtwSections),
 
                 ///Title & SubTitle
@@ -49,9 +48,9 @@ class verifyEmailScreen extends StatelessWidget{
                       subTitle: TTexts.yourAccountCreatedSubTitle,
                       onPressed: () => Get.to(() => const LoginScreen()),
                   ),),
-                  child: Text(TTexts.tContinue),),),
+                  child: const Text(TTexts.tContinue),),),
                 const SizedBox(height: TSizes.spaceBtwItems),
-                SizedBox(width: double.infinity,child:TextButton(onPressed: (){},child: Text(TTexts.resendEmail),),),
+                SizedBox(width: double.infinity,child:TextButton(onPressed: (){},child: const Text(TTexts.resendEmail),),),
               ],
             ),
         )

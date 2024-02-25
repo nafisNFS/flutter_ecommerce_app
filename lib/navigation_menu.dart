@@ -7,6 +7,8 @@ import 'package:t_store/features/shop/screens/wishlist/wishlist.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
+import 'features/personalization/screens/settings/settings.dart';
+
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -42,5 +44,5 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [const HomeScreen(), const StoreScreen(), const FavouriteScreen(), Container(color: Colors.yellow,),];
+  final screens = [const HomeScreen(), const StoreScreen(), const FavouriteScreen(), const SettingsScreen(),];
 }

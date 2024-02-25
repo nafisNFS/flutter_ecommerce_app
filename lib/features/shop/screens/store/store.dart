@@ -23,7 +23,7 @@ class StoreScreen extends StatelessWidget {
         length: 5,
         child: Scaffold(
           appBar: TAppBar(
-            showBackArrow: false,
+            showBackArrow: true,
             title: Text('Store', style: Theme
                 .of(context)
                 .textTheme
@@ -44,21 +44,21 @@ class StoreScreen extends StatelessWidget {
                       expandedHeight: 440,
                       //
                       flexibleSpace: Padding(
-                        padding: EdgeInsets.all(TSizes.defaultSpace),
+                        padding: const EdgeInsets.all(TSizes.defaultSpace),
                         child: ListView(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           children:  [
                             ///Search Bar
-                            SizedBox(height: TSizes.spaceBtwItems,),
+                            const SizedBox(height: TSizes.spaceBtwItems,),
                             //TSearchContainer(text: '',showBorder: true,showBackground: false,padding: EdgeInsets.zero),
-                            TSearchContainer(
+                            const TSearchContainer(
                               text: 'Search in Store',
                               showBorder: true,
                               showBackground: false,
                               padding: EdgeInsets.zero,
                             ),
-                            SizedBox(height: TSizes.spaceBtwSections,),
+                            const SizedBox(height: TSizes.spaceBtwSections,),
 
                             ///Featured Brands
                             TSectionHeading(title: 'Featured Brands                     ', onPressed: () {}),
