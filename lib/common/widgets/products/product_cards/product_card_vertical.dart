@@ -11,6 +11,7 @@ import '../../icons/t_circular_icon.dart';
 import '../../images/t_rounded_image.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
+import '../../texts/t_brand_title_text_with_verified_icon.dart';
 
 
 class TProductCardVertical extends StatelessWidget {
@@ -78,18 +79,7 @@ class TProductCardVertical extends StatelessWidget {
                   const TProductTitleText(title: 'Green Nike Air Shoes', smallSize: true),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
                   //brand name
-                  Row(
-                    children: [
-                      Text(
-                        'Nike',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(width: TSizes.xs),
-                      const Icon(Iconsax.verify5, color: TColors.primary, size: TSizes.iconXs),
-                    ],
-                  ),
+                  TBrandTitleWithVerifiedIcon(title: 'Nike',),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,3 +112,4 @@ class TProductCardVertical extends StatelessWidget {
     );
   }
 }
+
