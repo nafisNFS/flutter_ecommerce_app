@@ -12,7 +12,6 @@ class TCartCounterIcon extends StatelessWidget {
     this.iconColor,
     required this.onPressed,
   });
-
   @override
   Widget build(BuildContext context) {
     return Stack(
