@@ -23,7 +23,7 @@ class TCartItem extends StatelessWidget {
           imageUrl: TImages.productImage1,
           width: 60,
           height: 60,
-          padding: EdgeInsets.all(TSizes.sm),
+          padding: const EdgeInsets.all(TSizes.sm),
           backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.darkerGrey : TColors.light,
         ),
         const SizedBox(width: TSizes.spaceBtwItems,),
@@ -34,16 +34,16 @@ class TCartItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TBrandTitleWithVerifiedIcon(title: 'Nike'),
-                const Flexible(child: TProductTitleText(title: 'Black SportsShoes',maxLines: 1,)),
+                const TBrandTitleWithVerifiedIcon(title: 'Nike'),
+                const Flexible(child: TProductTitleText(title: 'Black Sports Shoes',maxLines: 1,)),
                 ///Attributes
                 Text.rich(
                     TextSpan(
                         children: [
-                          TextSpan(text: 'Color' ,style: Theme.of(context).textTheme.bodySmall),
-                          TextSpan(text: 'Green' ,style: Theme.of(context).textTheme.bodyLarge),
-                          TextSpan(text: 'Size' ,style: Theme.of(context).textTheme.bodySmall),
-                          TextSpan(text: '46' ,style: Theme.of(context).textTheme.bodyLarge),
+                          TextSpan(text: 'Color ' ,style: Theme.of(context).textTheme.bodySmall),
+                          TextSpan(text: 'Green ' ,style: Theme.of(context).textTheme.bodyLarge),
+                          TextSpan(text: 'Size ' ,style: Theme.of(context).textTheme.bodySmall),
+                          TextSpan(text: '46 ' ,style: Theme.of(context).textTheme.bodyLarge),
 
                         ]
                     )

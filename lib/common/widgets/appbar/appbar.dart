@@ -29,7 +29,7 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
       child: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back(),

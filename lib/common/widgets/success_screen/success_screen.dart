@@ -32,7 +32,7 @@ class SuccessScreen extends StatelessWidget {
               ///Button
               SizedBox(width: double.infinity,child:ElevatedButton(onPressed: onPressed,child:const Text(TTexts.tContinue),),),
               const SizedBox(height: TSizes.spaceBtwItems,),
-              SizedBox(width: double.infinity,child:TextButton(onPressed: (){},child:const Text(TTexts.resendEmail),),),
+             // SizedBox(width: double.infinity,child:TextButton(onPressed: (){},child:const Text(TTexts.resendEmail),),),
 
 
             ],
