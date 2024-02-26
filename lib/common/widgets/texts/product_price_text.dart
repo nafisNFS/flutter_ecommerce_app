@@ -7,7 +7,7 @@ class TProductPriceText extends StatelessWidget {
   final bool lineThrough;
   const TProductPriceText({
     super.key,
-    this.currencySign = "Rs.",
+    this.currencySign = "Tk.",
     required this.price,
     this.maxLines = 1,
     this.isLarge = false,

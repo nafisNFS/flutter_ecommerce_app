@@ -37,7 +37,7 @@ class TProductAttributes extends StatelessWidget {
 
                           /// Actual Price
                           Text(
-                            'Rs.2500',
+                            'Tk.2500',
                             style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),
                           ),
                           const SizedBox(width: TSizes.spaceBtwItems),
