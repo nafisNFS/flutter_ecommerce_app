@@ -29,7 +29,8 @@ class TBrandShowCase extends StatelessWidget {
               children: images
                   .map((image) => brandTopProductImageWidget(image, context))
                   .toList())
-        ]));
+        ])
+    );
   }
 }
 
