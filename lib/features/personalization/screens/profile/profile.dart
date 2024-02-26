@@ -41,8 +41,8 @@ class ProfileScreen extends StatelessWidget {
               const TSectionHeading(title: 'Profile Information' , showActionButton: false,),
               const SizedBox(height: TSizes.spaceBtwItems,),
 
-              TProfileMenu(title: 'Name',value: 'Coding with T',onPressed: (){},),
-              TProfileMenu(title: 'Username',value: 'Coding_with_T',onPressed: (){},),
+              TProfileMenu(title: 'Name',value: 'Flutter Group',onPressed: (){},),
+              TProfileMenu(title: 'Username',value: 'Flutter BrainStation',onPressed: (){},),
 
               const SizedBox(height: TSizes.spaceBtwItems,),
               const Divider(),
@@ -53,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems,),
 
               TProfileMenu(title: 'User ID',value: '202114041',icon: Iconsax.copy,onPressed: (){},),
-              TProfileMenu(title: 'E-mail',value: 'Coding_with_T',onPressed: (){},),
+              TProfileMenu(title: 'E-mail',value: 'flutter@gmail.com',onPressed: (){},),
               TProfileMenu(title: 'Phone Number',value: '01757259665',onPressed: (){},),
               TProfileMenu(title: 'Gender',value: 'Female',onPressed: (){},),
               TProfileMenu(title: 'Date of Birth',value: '30 Jan, 2001',onPressed: (){},),
