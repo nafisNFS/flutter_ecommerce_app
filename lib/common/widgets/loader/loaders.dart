@@ -5,7 +5,7 @@ import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class TLoaders {
-  static customToast({required mesdsage}) {
+  static customToast({required message}) {
     ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
         elevation: 0,
         duration: const Duration(seconds: 3),
@@ -21,7 +21,7 @@ class TLoaders {
         )));
   }
 
-  static succesSnackBar({required title, message = ''}) {
+  static successSnackBar({required title, message = ''}) {
     Get.snackbar(
       title,
       message,
@@ -57,7 +57,7 @@ class TLoaders {
     );
   }
 
-  static errroSnackBar({required title, message = ''}) {
+  static errorSnackBar({required title, message = ''}) {
     Get.snackbar(
       title,
       message,

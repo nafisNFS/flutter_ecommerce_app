@@ -34,14 +34,14 @@ class SignupController extends GetxController {
       //check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        TFullScreenLoader.stopLoading();
+        //TFullScreenLoader.stopLoading();
         return;
       }
 
 
       //form validation
       if (!signupFormKey.currentState!.validate()) {
-        TFullScreenLoader.stopLoading();
+        //TFullScreenLoader.stopLoading();
         return;
       }
 
@@ -73,7 +73,7 @@ class SignupController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
       //show success message
-      TLoaders.succesSnackBar(
+      TLoaders.successSnackBar(
           title: 'Congratulations',
           message: 'Your Account has been created! Verify email and continue.');
 
@@ -83,7 +83,7 @@ class SignupController extends GetxController {
 
     } catch (e) {
       //show some generic error to the user
-      TLoaders.errroSnackBar(title: 'Oh Snap', message: e.toString());
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
 
     }finally{
       //remove loader
