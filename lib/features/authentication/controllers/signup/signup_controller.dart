@@ -1,19 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:t_store/common/widgets/loader/loaders.dart';
+import 'package:t_store/utils/constants/image_strings.dart';
+import 'package:t_store/utils/helpers/network_manager.dart';
+import 'package:t_store/utils/popups/full_screen_loader.dart';
 
-import '../../../../common/widgets/loader/loaders.dart';
 import '../../../../data/repositories.authentication/authentication_repository.dart';
 import '../../../../data/user/user_repository.dart';
-import '../../../../utils/constants/image_strings.dart';
-import '../../../../utils/helpers/network_manager.dart';
-import '../../../../utils/popups/full_screen_loader.dart';
 import '../../../personalization/models/user_models.dart';
 import '../../screens/signup/verify_email.dart';
 
 class SignupController extends GetxController {
-  static SignupController get instance => Get.find();//saves lots of memory
-
-  ///Variables
+  static SignupController get instance => Get.find();
   final hidePassword = true.obs;
   final privacyPolicy = true.obs;
   final email = TextEditingController();
@@ -22,30 +20,28 @@ class SignupController extends GetxController {
   final password = TextEditingController();
   final firstName = TextEditingController();
   final phoneNumber = TextEditingController();
-  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();//Form key for form validation
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-  ///SIGNUP
- void signup() async {
+  void signup() async {
     try {
-      //start loading
+      // Loading
       TFullScreenLoader.openLoadingDialog(
           "We are processing your information", TImages.docerAnimation);
 
-      //check internet connectivity
+      //Check Internet Connection
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        //TFullScreenLoader.stopLoading();
+        TFullScreenLoader.stopLoading();
         return;
       }
 
-
-      //form validation
+      //Form Validation
       if (!signupFormKey.currentState!.validate()) {
-        //TFullScreenLoader.stopLoading();
+        TFullScreenLoader.stopLoading();
         return;
       }
 
-      //privacy policy check
+      //Privacy policy check
       if (!privacyPolicy.value) {
         TLoaders.warningSnackBar(
             title: 'Please Accept Privacy Policy',
@@ -53,13 +49,12 @@ class SignupController extends GetxController {
             'In Order to create account, you must have to read and accept the Privacy Policy Term of Use');
         return;
       }
-
-      //register user in the firebase authentication & save user data in the firebase
+      // register user in the Firebase Authentication  & Save User Data  in the firebase
       final user = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
           email.text.trim(), password.text.trim());
 
-      //save authenticated user data in the firebase firestore
+      // Save auuthentication user data in the firebase firestore
       final newUser = UserModel(
         id: user.user!.uid,
         firstName: firstName.text.trim(),
@@ -72,23 +67,17 @@ class SignupController extends GetxController {
 
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
-      //show success message
-      TLoaders.successSnackBar(
-          title: 'Congratulations',
-          message: 'Your Account has been created! Verify email and continue.');
 
-      //move to verify email screen
-      Get.to(() =>const  VerifyEmailScreen());
-
-
-    } catch (e) {
-      //show some generic error to the user
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-
-    }finally{
-      //remove loader
       TFullScreenLoader.stopLoading();
 
+      TLoaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your Account has been created Verify email and continue');
+
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
 }
