@@ -123,7 +123,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// Google Authentication
+  /// Google SignIn Authentication
 
   Future<UserCredential> signInWithGoogle() async {
     try {
