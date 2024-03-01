@@ -14,6 +14,7 @@ import 'package:t_store/utils/popups/full_screen_loader.dart';
 
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../../../shop/screens/home/widgets/home_appbar.dart';
 
 
 class ProfileScreen extends StatelessWidget {
@@ -36,8 +37,14 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const TCircularImage(image: TImages.user,width: 80,height: 80,),
-                    TextButton(onPressed: (){}, child: const Text('Change Profile Picture')),
+                    Obx((){
+                      final networkImage=controller.user.value.profilePicture;
+                      final image=networkImage.isNotEmpty ? networkImage : TImages.user;
+                      return controller.imageUploading.value
+                        ? const TShimmerEffect(width: 80,height: 80,radius: 80,)
+                        :  TCircularImage(image: image,width: 80,height: 80,isNetworkImage: networkImage.isNotEmpty,);
+                    }),
+                    TextButton(onPressed: () => controller.uploadUserProfilePicture(), child: const Text('Change Profile Picture')),
                   ],
                 ),
               ),
