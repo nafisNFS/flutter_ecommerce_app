@@ -53,7 +53,7 @@ class UserModel {
   ///convert model to JSON structure for storing data in Firebase
   Map<String, dynamic> toJson() {
     return {
-      'firstName': firstName,
+      'FirstName': firstName,
       'LastName': lastName,
       'UserName': username,
       'Email': email,
@@ -71,10 +71,10 @@ class UserModel {
           id: document.id,
           firstName: data['FirstName'] ?? '',
           lastName: data['LastName'] ?? '',
-          username: data['Username'] ?? '',
+          username: data['UserName'] ?? '',
           email: data['Email'] ?? '',
           phoneNumber: data['PhoneNumber'] ?? '',
-          profilePicture: data['ProfilePicture'] ?? ' ');
+          profilePicture: data['ProfilePicture'] ?? '');
     }
     return UserModel.empty();
   }

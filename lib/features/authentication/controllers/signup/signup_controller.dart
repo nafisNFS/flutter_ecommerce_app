@@ -35,9 +35,11 @@ class SignupController extends GetxController {
         return;
       }
 
+      print(signupFormKey.currentState!.validate());
+
       //Form Validation
       if (!signupFormKey.currentState!.validate()) {
-        TFullScreenLoader.stopLoading();
+        // TFullScreenLoader.stopLoading();
         return;
       }
 
@@ -50,13 +52,13 @@ class SignupController extends GetxController {
         return;
       }
       // register user in the Firebase Authentication  & Save User Data  in the firebase
-      final user = await AuthenticationRepository.instance
+      final userCredential = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
           email.text.trim(), password.text.trim());
 
-      // Save auuthentication user data in the firebase firestore
+      // Save authentication user data in the firebase firestore
       final newUser = UserModel(
-        id: user.user!.uid,
+        id: userCredential.user!.uid,
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
         username: username.text.trim(),
@@ -76,8 +78,10 @@ class SignupController extends GetxController {
 
       Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
-      TFullScreenLoader.stopLoading();
+      //TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    }finally{
+      TFullScreenLoader.stopLoading();
     }
   }
 }

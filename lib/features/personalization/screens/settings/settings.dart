@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:t_store/common/widgets/list_tiles/settings_menu_tile.dart';
+import 'package:t_store/data/repositories.authentication/authentication_repository.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
 
@@ -22,6 +23,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final auth= AuthenticationRepository.instance;
     return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -83,12 +85,10 @@ class SettingsScreen extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwSections,),
                     SizedBox(
                       width: double.infinity,
-                      child: OutlinedButton(onPressed: (){},child: const Text('Logout'),),
+                      child: OutlinedButton(onPressed:  () async => auth.logout(),child: const Text('Logout'),),
                     ),
                     const SizedBox(height: TSizes.spaceBtwSections * 2.5,),
-
                   ],
-
                 ),
             )
           ],
