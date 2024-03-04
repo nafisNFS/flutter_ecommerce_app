@@ -29,6 +29,7 @@ class FavouriteScreen extends StatelessWidget {
           child: Column(
             children: [
               TGridLayout(itemCount: controller.featuredProducts.length, itemBuilder: (_, index) => TProductCardVertical(product: controller.featuredProducts[index]))],
+            /// Wishlist Corrected
           ),
         ),
       ),
