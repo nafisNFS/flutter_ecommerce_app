@@ -37,7 +37,7 @@ class VariationController extends GetxController{
   }
 
   //check if selected variation matches any variation attributes
-  bool _isSameAttributeValues(Map<String, dynamic>) variationAttributes, Map<String,dynamic> selectedAttributes){
+  bool _isSameAttributeValues(Map<String, dynamic> variationAttributes, Map<String,dynamic> selectedAttributes){
     //if selectedAttributes contains 3 attributes and current variation contains 2 then return
     if(variationAttributes.length != selectedAttributes .length) return false;
 
@@ -49,6 +49,8 @@ class VariationController extends GetxController{
 
     return true;
   }
+
+
 
   ///check attribute availability /stocl in variation
   Set<String?> getAttributesAvailabilityInVariation(List<ProductVariationModel> variations, String attributeName) {
@@ -64,9 +66,13 @@ class VariationController extends GetxController{
      return  availableVariationAttributeValues;
   }
 
+
+
   String getVariationPrice(){
      return (selectedVariation.value.salePrice>0 ? selectedVariation.value.salePrice : selectedVariation.value.price).toString();
   }
+
+
 
   ///check product variation stock status
   void getProductVariationStockStatus(){
@@ -80,3 +86,6 @@ class VariationController extends GetxController{
     selectedVariation.value=ProductVariationModel.empty();
   }
 }
+
+
+
