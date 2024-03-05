@@ -1,4 +1,5 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
@@ -69,10 +70,17 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const TPromoSlider(),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+
                     TSectionHeading(
                       title: 'Popular Products                   ',
                       showActionButton: true,
-                      onPressed: () => Get.to(() => const AllProducts()),
+                      onPressed: () => Get.to(() => AllProducts(
+                        title: 'Popular Products',
+                        futureMethod: controller.fetchAllFeaturedProducts(),
+                      )),
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwSections,

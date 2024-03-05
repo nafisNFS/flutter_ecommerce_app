@@ -24,7 +24,7 @@ class BrandProducts extends StatelessWidget {
               SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
-              TSortableProducts()
+              TSortableProducts(products: [],)
             ],
           ),
         ),
