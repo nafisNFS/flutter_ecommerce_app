@@ -14,7 +14,7 @@ class AddNewAddressScreen extends StatelessWidget {
     final controller = AddressController.instance;
 
     return Scaffold(
-      appBar: const TAppBar(title: Text('Add New Adress')),
+      appBar: const TAppBar(title: Text('Add New Address')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Form(
