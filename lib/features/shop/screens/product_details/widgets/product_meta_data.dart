@@ -22,6 +22,7 @@ class TProductMetaData extends StatelessWidget {
     final darkMode = THelperFunctions.isDarkMode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+
       children: [
         /// Price & Sale Price
         Row(
@@ -60,7 +61,7 @@ class TProductMetaData extends StatelessWidget {
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
-        
+
 
         /// Brand
         Row(

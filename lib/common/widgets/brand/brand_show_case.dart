@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/common/widgets/brand/T_brand_card.dart';
+import 'package:t_store/common/widgets/brand/brand_card.dart';
+import 'package:t_store/features/shop/models/brand_model.dart';
 
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -21,7 +22,7 @@ class TBrandShowCase extends StatelessWidget {
         padding: const EdgeInsets.all(TSizes.md),
         margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
         child: Column(children: [
-          const TBrandCard(showBorder: false),
+          TBrandCard(showBorder: false, brand: BrandModel.empty(),),
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),

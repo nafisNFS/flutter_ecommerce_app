@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/images/t_circular_image.dart';
+import 'package:t_store/features/shop/models/brand_model.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/enums.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
+
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
@@ -13,9 +14,9 @@ class TBrandCard extends StatelessWidget {
   const TBrandCard({
     super.key,
     required this.showBorder,
-    this.onTap,
+    this.onTap, required this.brand,
   });
-
+  final BrandModel brand;
   final bool showBorder;
   final void Function()? onTap;
   @override
@@ -27,10 +28,13 @@ class TBrandCard extends StatelessWidget {
         padding: const EdgeInsets.all(TSizes.sm),
         showBorder: showBorder,
         backgroundColor: Colors.transparent,
-        child: Row(children: [
+        child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
           Flexible(
             child: TCircularImage(
-              image: TImages.clothIcon,
+              isNetworkImage: true,
+              image: brand.image,
               backgroundColor: Colors.transparent,
               overlayColor: isDark ? TColors.white : TColors.black,
             ),
@@ -43,12 +47,12 @@ class TBrandCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const TBrandTitleWithVerifiedIcon(
-                  title: 'Nike',
+                  TBrandTitleWithVerifiedIcon(
+                  title: brand.name,
                   brandTextSize: TextSizes.large,
                 ),
                 Text(
-                  '256 products',
+                  '${brand.productsCount ?? 0} products',
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.labelMedium,
                 )

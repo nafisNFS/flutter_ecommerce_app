@@ -7,7 +7,6 @@ import 'package:t_store/features/shop/screens/product_details/product_detail.dar
 import 'package:t_store/utils/constants/enums.dart';
 
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../../styles/shadow_styles.dart';
@@ -55,6 +54,7 @@ class TProductCardVertical extends StatelessWidget {
                     isNetworkImage: true,
                   ),
                   //sale tag
+                  if (salePercentage!=null)
                   Positioned(
                     top: 12,
                     child: TRoundedContainer(

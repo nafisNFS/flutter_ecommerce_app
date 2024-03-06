@@ -35,17 +35,17 @@ class TProductAttributes extends StatelessWidget {
                   /// Title, Price and Stock Status
                   Row(
                     children: [
-                      const TSectionHeading(
-                          title: 'Variation', showActionButton: false),
-                      const SizedBox(width: TSizes.spaceBtwItems),
+
+
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          const TSectionHeading(title: 'Variation', showActionButton: false),
                           Row(
                             children: [
                               const TProductTitleText(
                                   title: 'Price : ', smallSize: true),
-      
+
                               /// Actual Price
                               Text(
                                 'Tk.${controller.getVariationPrice()}',
@@ -56,12 +56,12 @@ class TProductAttributes extends StatelessWidget {
                                         decoration: TextDecoration.lineThrough),
                               ),
                               const SizedBox(width: TSizes.spaceBtwItems),
-      
+
                               /// Sale Price
                                TProductPriceText(price: controller.getVariationPrice()),
                             ],
                           ),
-      
+
                           /// Stock
                           Row(
                             children: [
@@ -75,7 +75,7 @@ class TProductAttributes extends StatelessWidget {
                       )
                     ],
                   ),
-      
+
                   /// Variation Description
                    TProductTitleText(
                     title: controller.selectedVariation.value.description ?? '',
