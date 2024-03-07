@@ -13,6 +13,7 @@ Future<void> main() async {
   final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   /// -- GetX Local Storage
+  ///
   await GetStorage.init();
 
   /// -- Await Splash until other items Load
