@@ -15,7 +15,7 @@ class AllProductsController extends GetxController {
     try {
       if(query == null) return [];
 
-      final products = await repository.fetchProductsByQuery(query);
+      final products = await repository.fetchProductByQuery(query);
 
       return products;
     } catch (e) {

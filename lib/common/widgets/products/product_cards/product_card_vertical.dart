@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:t_store/features/shop/controllers/product/product_controller.dart';
 import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/screens/product_details/product_detail.dart';
 import 'package:t_store/utils/constants/enums.dart';
 
 import '../../../../utils/constants/colors.dart';
-
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../../styles/shadow_styles.dart';
 import '../../custom_shapes/containers/rounded_container.dart';
-import '../../icons/t_circular_icon.dart';
 import '../../images/t_rounded_image.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
@@ -29,6 +28,8 @@ class TProductCardVertical extends StatelessWidget {
     final controller = ProductController.instance;
     final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = THelperFunctions.isDarkMode(context);
+
+
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(product: product)),
       child: Container(
@@ -49,13 +50,14 @@ class TProductCardVertical extends StatelessWidget {
               child: Stack(
                 children: [
                   //thumbnail image
-                  TRoundedImage(
-                    imageUrl: product.thumbnail,
-                    applyImageRadius: true,
-                    isNetworkImage: true,
+                  Center(
+                    child: TRoundedImage(
+                      imageUrl: product.thumbnail,
+                      applyImageRadius: true,
+                      isNetworkImage: true,
+                    ),
                   ),
                   //sale tag
-                  if (salePercentage!=null)
                   Positioned(
                     top: 12,
                     child: TRoundedContainer(
@@ -70,10 +72,10 @@ class TProductCardVertical extends StatelessWidget {
                   ),
 
                   //fav icon button
-                  const Positioned(
+                   Positioned(
                     top: 0,
                     right: 0,
-                    child: TCircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                    child: TFavouriteIcon(productId: product.id,),
                   ),
                 ],
               ),
