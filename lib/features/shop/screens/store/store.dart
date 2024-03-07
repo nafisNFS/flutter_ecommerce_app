@@ -40,6 +40,7 @@ class StoreScreen extends StatelessWidget {
             ],
           ),
           body: NestedScrollView(
+            //ulululu
               headerSliverBuilder: (_, innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
