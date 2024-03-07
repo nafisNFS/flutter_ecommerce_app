@@ -18,7 +18,7 @@ class TLoaders {
               color: THelperFunctions.isDarkMode(Get.context!)
                   ? TColors.grey
                   : TColors.dark.withOpacity(0.9)),
-          child:Text(message),
+             child:Text(message),
         )));
   }
 

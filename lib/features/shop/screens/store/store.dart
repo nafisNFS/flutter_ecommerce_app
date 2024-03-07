@@ -33,7 +33,7 @@ class StoreScreen extends StatelessWidget {
                 .textTheme
                 .headlineMedium),
             actions: [
-              TCartCounterIcon(onPressed: () {},
+              TCartCounterIcon(
                   iconColor: dark ? TColors.white : TColors.black)
             ],
           ),

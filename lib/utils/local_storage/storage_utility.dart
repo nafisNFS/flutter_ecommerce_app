@@ -20,13 +20,12 @@ class TLocalStorage {
     _instance!._storage=GetStorage(bucketName);
   }
 
-
-
-
-
-
   // Generic method to save data
   Future<void> saveData<T>(String key, T value) async {
+    await _storage.write(key, value);
+  }
+
+  Future<void> writeData<T>(String key, T value) async {
     await _storage.write(key, value);
   }
 
@@ -34,6 +33,8 @@ class TLocalStorage {
   T? readData<T>(String key) {
     return _storage.read<T>(key);
   }
+
+
 
   // Generic method to remove data
   Future<void> removeData(String key) async {
