@@ -26,7 +26,7 @@ class StoreScreen extends StatelessWidget {
     final brandController = Get.put(BrandController());
     final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-        length: 5,
+        length: categories.length,
         child: Scaffold(
           appBar: TAppBar(
             showBackArrow: true,
@@ -66,7 +66,7 @@ class StoreScreen extends StatelessWidget {
                             const SizedBox(height: TSizes.spaceBtwSections,),
 
                             ///Featured Brands
-                            TSectionHeading(title: 'Featured Brands                     ', onPressed: () => Get.to(const AllBrandsScreen())),
+                            TSectionHeading(title: 'Featured Brands                     ', onPressed: () => Get.to(()=>const AllBrandsScreen())),
                             const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
                             Obx(
@@ -77,7 +77,7 @@ class StoreScreen extends StatelessWidget {
                                       child: Text('No Data Found!',style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white)));
                                   }
                                   return TGridLayout(
-                                      itemCount: 4,
+                                      itemCount: brandController.featuredBrands.length,
                                       mainAxisExtent: 80,
                                       itemBuilder: (_,index){
                                         final brand = brandController.featuredBrands[index];
