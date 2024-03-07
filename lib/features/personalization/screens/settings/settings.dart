@@ -57,29 +57,6 @@ class SettingsScreen extends StatelessWidget {
                     TSettingsMenuTile(icon: Iconsax.notification, title: 'Notifications', subTitle: 'Set any kind of notification message',onTap: (){},),
                     TSettingsMenuTile(icon: Iconsax.security_card, title: 'Account Privacy', subTitle: 'Manage data usage and connected accounts',onTap: (){},),
 
-                    ///App Settings
-                    const SizedBox(height: TSizes.spaceBtwSections,),
-                    const TSectionHeading(title: 'App Settings', showActionButton:false),
-                    const SizedBox(height: TSizes.spaceBtwItems,),
-                    TSettingsMenuTile(icon: Iconsax.document_upload, title: 'Load Data', subTitle: 'Set  recommendation based on location',onTap: (){},),
-                    TSettingsMenuTile(
-                      icon: Iconsax.location,
-                      title: 'Geolocation',
-                      subTitle: 'Upload Data to your Cloud Firebase',
-                      trailing: Switch(value: true,onChanged: (value){},),
-                    ),
-                    TSettingsMenuTile(
-                      icon: Iconsax.security_user,
-                      title: 'Safe Mode',
-                      subTitle: 'Search result is safe for all ages',
-                      trailing: Switch(value: false,onChanged: (value){},),
-                    ),
-                    TSettingsMenuTile(
-                      icon: Iconsax.image,
-                      title: 'HD Image Quality',
-                      subTitle: 'Set image quality to be seen',
-                      trailing: Switch(value: false,onChanged: (value){},),
-                    ),
 
                     ///Logout Button
                     const SizedBox(height: TSizes.spaceBtwSections,),
