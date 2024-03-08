@@ -7,14 +7,24 @@ import 'package:t_store/features/authentication/screens/signup/verify_email.dart
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/features/personalization/screens/settings/settings.dart';
+import 'package:t_store/features/shop/controllers/category_controller.dart';
+import 'package:t_store/features/shop/controllers/product/brand_controller.dart';
+import 'package:t_store/features/shop/controllers/product/product_controller.dart';
+import 'package:t_store/features/shop/screens/brand/brand_product.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/checkout/checkout.dart';
 import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/features/shop/screens/order/order.dart';
+import 'package:t_store/features/shop/screens/product_details/product_detail.dart';
 import 'package:t_store/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:t_store/features/shop/screens/store/store.dart';
+import 'package:t_store/features/shop/screens/sub_category/sub_categories.dart';
 import 'package:t_store/features/shop/screens/wishlist/wishlist.dart';
 import 'package:t_store/routes/routes.dart';
+
+final controller = Get.put(ProductController());
+final categoryController = Get.put(CategoryController());
+final brandController = Get.put(BrandController());
 
 class AppRoutes {
   static final pages = [
@@ -33,5 +43,8 @@ class AppRoutes {
     GetPage(name: TRoutes.signIn, page: () => const LoginScreen()),
     GetPage(name: TRoutes.forgetPassword, page: () => const ForgetPassword()),
     GetPage(name: TRoutes.onBoarding, page: () => const OnBoardingScreen()),
+    GetPage(name: TRoutes.samsung, page: () => ProductDetailScreen(product: controller.featuredProducts[2])),
+    GetPage(name: TRoutes.shoes, page: () => SubCategoriesScreen(category: categoryController.featuredCategories[4])),
+    GetPage(name: TRoutes.gmbats, page: () => BrandProducts(brand: brandController.featuredBrands[3])),
   ];
 }

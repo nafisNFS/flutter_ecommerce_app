@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
 
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/controllers/product/brand_controller.dart';
 import 'package:t_store/features/shop/controllers/product/product_controller.dart';
 
 import 'package:t_store/features/shop/screens/all_products/all_products.dart';
@@ -25,6 +26,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProductController());
+    final brandController = Get.put(BrandController());
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(
