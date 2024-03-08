@@ -39,7 +39,7 @@ class TCartItems extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          SizedBox(width: 70),
+                          const SizedBox(width: 70),
                           TProductQuantityWithAddRemoveButton(
                             quantity: item.quantity,
                             add: () =>cartController.addOneToCart(item),

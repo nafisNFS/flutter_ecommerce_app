@@ -22,29 +22,41 @@ class CartScreen extends StatelessWidget {
             'Cart',
             style: Theme.of(context).textTheme.headlineSmall,
           )),
-      body: Obx(() {
-        ///nothing found widget
-        final emptyWidget = TAnimationLoaderWidget(
-          text: 'Whoops!Cart is EMPTY.',
-          animation: TImages.docerAnimation,
-          showAction: true,
-          actionText: 'Let\'s fill it',
-          onActionPressed: () => Get.off(() => const NavigationMenu()),
-        );
+      body:Column(
+        children: [
+          Expanded(
+              child: SingleChildScrollView(
+                child:  Obx(() {
+                  ///nothing found widget
+                  final emptyWidget = TAnimationLoaderWidget(
+                    text: 'Whoops!Cart is EMPTY.',
+                    animation: TImages.docerAnimation,
+                    showAction: true,
+                    actionText: 'Let\'s fill it',
+                    onActionPressed: () => Get.off(() => const NavigationMenu()),
+                  );
 
-        if (controller.cartItems.isEmpty) {
-          return emptyWidget;
-        } else {
-          return const SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: TCartItems(),
-            ),
-          );
-        }
-      }),
+                  if (controller.cartItems.isEmpty) {
+                    return emptyWidget;
+                  } else {
+                    return const SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.all(TSizes.defaultSpace),
+                        child: TCartItems(),
+                      ),
+                    );
+                  }
+                }),
+
+              )
+          )
+        ],
+      ),
+
+
+
       bottomNavigationBar: controller.cartItems.isEmpty
-          ? SizedBox()
+          ? const SizedBox()
           : Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: ElevatedButton(
