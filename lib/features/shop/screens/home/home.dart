@@ -26,6 +26,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProductController());
+    /// For loading Banners
     final brandController = Get.put(BrandController());
     return Scaffold(
       body: SingleChildScrollView(
