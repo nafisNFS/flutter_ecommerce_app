@@ -1,6 +1,9 @@
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+
 import 'package:t_store/common/widgets/loader/loaders.dart';
+
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/helpers/network_manager.dart';
 import 'package:t_store/utils/popups/full_screen_loader.dart';
@@ -28,18 +31,16 @@ class SignupController extends GetxController {
       TFullScreenLoader.openLoadingDialog(
           "We are processing your information", TImages.docerAnimation);
 
-      //Check Internet Connection
+      //Check Internet COnnection
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         TFullScreenLoader.stopLoading();
         return;
       }
 
-      print(signupFormKey.currentState!.validate());
-
       //Form Validation
       if (!signupFormKey.currentState!.validate()) {
-        // TFullScreenLoader.stopLoading();
+        TFullScreenLoader.stopLoading();
         return;
       }
 
@@ -52,17 +53,17 @@ class SignupController extends GetxController {
         return;
       }
       // register user in the Firebase Authentication  & Save User Data  in the firebase
-      final userCredential = await AuthenticationRepository.instance
+      final user = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
           email.text.trim(), password.text.trim());
 
       // Save authentication user data in the firebase firestore
       final newUser = UserModel(
-        id: userCredential.user!.uid,
+        id: user.user!.uid,
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
         username: username.text.trim(),
-        email: email.text.trim(),
+        email: username.text.trim(),
         phoneNumber: phoneNumber.text.trim(),
         profilePicture: "",
       );
@@ -73,15 +74,13 @@ class SignupController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       TLoaders.successSnackBar(
-          title: 'Congratulations',
+          title: 'Congratulaions',
           message: 'Your Account has been created Verify email and continue');
 
       Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
-      //TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-    }finally{
       TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
 }
