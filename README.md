@@ -1,6 +1,6 @@
 # Flutter Ecommerce App
 
-![Project Video](https://img.youtube.com/vi/LYYRJnffHZo/0.jpg)](https://youtu.be/LYYRJnffHZo)
+
 > [Watch the project demo](https://youtu.be/LYYRJnffHZo)
 
 A modern and feature-rich ecommerce application built using Flutter, providing a seamless shopping experience for users.
